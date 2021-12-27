@@ -38,34 +38,29 @@ namespace ConsoleApp1
         {
             Stack<T> b = new Stack<T>();
             for (int i = 0; i <= alterstack._lastindex; i++)
-            {
                 b.Push(alterstack.Pop());
-            }
             for (int i = 0; i <= alterstack._lastindex + 1; i++)
-            {
                 this.Push(b.Pop());
-            }
         }
-        public void PopStack(Stack<T> alterstack)
+        public Stack<T> PopStack(int count)
         {
-            Stack<T> a = new Stack<T>();
-            for (int i = 0; i <= alterstack._lastindex; i++)
-            {
-                a.Pop(alterstack(Push()));
-            }
-            for (int i = 0; i <= alterstack._lastindex - 1; i--)
-            {
-                this.Pop(a.Push());            
-            }
-            return a;
+            T[] _newStackArr = new T[count];
+            Stack<T> newStack = new Stack<T>();
+
+            for (int i = 0; i < count; i++)
+                _newStackArr[i] = this.Pop();
+
+
+            for (int i = _newStackArr.Length - 1; i >= 0; i--)
+                newStack.Push(_newStackArr[i]);
+
+            return newStack;
         }
 
         public void print()
         {
             for(int i = 0; i < _lastindex; i++)
-            {
                 Console.WriteLine(_valueinstack[i]);
-            }
             Console.WriteLine();
         }
     }
