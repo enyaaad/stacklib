@@ -46,6 +46,19 @@ namespace ConsoleApp1
                 this.Push(b.Pop());
             }
         }
+        public void PopStack(Stack<T> alterstack)
+        {
+            Stack<T> a = new Stack<T>();
+            for (int i = 0; i <= alterstack._lastindex; i++)
+            {
+                a.Pop(alterstack(Push()));
+            }
+            for (int i = 0; i <= alterstack._lastindex - 1; i--)
+            {
+                this.Pop(a.Push());            
+            }
+            return a;
+        }
 
         public void print()
         {
